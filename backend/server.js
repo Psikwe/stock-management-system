@@ -1,20 +1,29 @@
 require("dotenv").config();
 const express = require("express");
 const productsRoutes = require("./routes/products");
+const mongoose = require("mongoose");
 
 const app = express();
 
-app.use((req, res, next) => {
-  console.log("path ", req.path, "method ", req.method);
-  next();
-});
+app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.json({ mssg: "stock management system" });
-});
+// app.use((req, res, next) => {
+//   console.log("path ", req.path, "method ", req.method);
+//   next();
+// });
 
 app.use("/api/products", productsRoutes);
 
-app.listen(process.env.PORT, (req, res) => {
-  console.log("listening on port", process.env.PORT);
-});
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    app.listen(process.env.PORT, (req, res) => {
+      console.log(
+        "db connection established & listening on port",
+        process.env.PORT
+      );
+    });
+  })
+  .catch((error) => {
+    console.error(error);
+  });
