@@ -8,13 +8,14 @@ interface Props {}
 const Navbar = (props: Props) => {
   return (
     <>
-      <div className="flex justify-between">
-        <div>
-          <img src={logo} />
+      <div className="flex justify-between items-center bg-black">
+        <div className="flex items-center">
+          <img className="w-12" src={logo} />
+          <h3 className="text-white">My Dashboard</h3>
         </div>
-        <div>
-          <BsFillBellFill />
-          <CgProfile />
+        <div className="flex">
+          <BsFillBellFill color="red" />
+          <CgProfile color="red" />
         </div>
       </div>
     </>
