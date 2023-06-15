@@ -28,3 +28,28 @@ export type IUser = {
 export type IUserState = {
   user?: IUser;
 };
+
+export type IButton = {
+  btnName: string;
+  btnClassName: string;
+  btnDisabled?: boolean;
+};
+
+export type IInputField = {
+  type: string;
+  name: string;
+  className?: string;
+  placeholder?: string;
+  id: number;
+};
+
+export type IInputLabels = {
+  htmlFor: string;
+  name: string;
+  className: string;
+  id: number | string;
+};
+
+export type IConfig = {
+  apiBaseUrl: string;
+};
