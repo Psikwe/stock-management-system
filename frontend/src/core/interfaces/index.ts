@@ -5,8 +5,9 @@ export type IDashboard = {
 
 export type ICard = {
   cardName: string;
-  cardNumber: number;
+  cardNumber: number | string;
   className: string;
+  cardNumberClassName: string;
 };
 
 export type ISidePanel = {
@@ -33,6 +34,21 @@ export type IButton = {
   btnName: string;
   btnClassName: string;
   btnDisabled?: boolean;
+  btnOnclick?: () => void;
+};
+
+export type IButtonLoading = {
+  disable: boolean;
+  btnName: string;
+  parentClassnName: string;
+  firstChildClassName: string;
+  btnClassName?: string;
+};
+
+export type ISpinner = {
+  spinnerName: string;
+  parentClassnName: string;
+  firstChildClassName: string;
 };
 
 export type IInputField = {
@@ -52,4 +68,22 @@ export type IInputLabels = {
 
 export type IConfig = {
   apiBaseUrl: string;
+};
+
+export type ISignup = {
+  fullName: string;
+  email: string;
+  companyName: string;
+  password: string;
+};
+
+export type ILogin = {
+  email: string;
+  password: string;
+};
+
+export type IToast = {
+  toastMessage: string;
+  toastIcon: string;
+  toastChildClassName: string;
 };

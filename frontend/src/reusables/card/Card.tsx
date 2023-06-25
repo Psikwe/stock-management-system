@@ -4,7 +4,7 @@ const Card = (props: ICard) => {
   return (
     <div className={props.className}>
       <div>{props.cardName}</div>
-      <div>{props.cardNumber}</div>
+      <div className={props.cardNumberClassName}>{props.cardNumber}</div>
     </div>
   );
 };
