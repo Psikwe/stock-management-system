@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const cors = require("cors");
 const {
   createProduct,
   getProduct,
@@ -7,9 +8,14 @@ const {
   deleteProduct,
   updateProduct,
 } = require("../controllers/productController");
+const requireAuth = require("../middleware/requireAuth");
+
+router.use(cors());
+
+// router.use(requireAuth);
 
 //get all products
-router.get("/", getProducts);
+router.get("/all", getProducts);
 
 //post a new product
 router.post("/", createProduct);
